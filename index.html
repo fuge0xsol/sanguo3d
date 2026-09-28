@@ -101,6 +101,104 @@ html,body{margin:0;height:100%;overflow:hidden;background:#e9dfc6;
   background:#e9dfc6;color:#4a3f2e;font-size:17px;letter-spacing:.5em;z-index:10;
   transition:opacity .7s;font-family:"Ma Shan Zheng","Kaiti SC","KaiTi",serif;}
 #loading .seal{background:#a03b28;color:#f4ecd6;font-size:22px;padding:10px 8px;border-radius:2px;letter-spacing:.1em;}
+/* ---------- 侧缘书签按钮 ---------- */
+.edgebtn{position:absolute;z-index:8;writing-mode:vertical-rl;text-orientation:upright;
+  background:rgba(243,235,213,.94);border:1px solid rgba(58,49,40,.8);border-radius:3px;
+  color:#3a3128;font-size:14.5px;letter-spacing:.34em;padding:14px 7px;cursor:pointer;
+  box-shadow:0 3px 10px rgba(58,44,24,.25);font-family:inherit;transition:all .2s;}
+.edgebtn:hover{background:#3a3128;color:#f0e6cc;}
+.edgebtn.on{background:#a03b28;border-color:#8c2f22;color:#f4ecd6;}
+/* ---------- 通用面板 ---------- */
+.panel{position:absolute;z-index:9;background:rgba(246,238,218,.97);border:1.5px solid #3a3128;
+  border-radius:3px;box-shadow:0 0 0 2px rgba(246,238,218,.55),0 0 0 3.5px #3a3128,0 10px 30px rgba(58,44,24,.35);
+  color:#2f2a20;display:none;}
+.panel.open{display:block;}
+.ptitle{display:flex;align-items:center;justify-content:space-between;
+  font-size:16px;font-weight:700;letter-spacing:.3em;padding:11px 14px 9px;
+  border-bottom:1px solid rgba(58,49,40,.35);}
+.pclose{background:none;border:none;color:#5a4c38;font-size:19px;cursor:pointer;line-height:1;
+  padding:2px 6px;font-family:inherit;}
+.pclose:hover{color:#a03b28;}
+/* ---------- 行路檢索 ---------- */
+#routePanel{left:76px;top:322px;width:308px;}
+.prow{display:flex;align-items:center;gap:8px;padding:7px 14px 0;}
+.prow .plab{writing-mode:vertical-rl;text-orientation:upright;font-size:11.5px;letter-spacing:.2em;
+  color:rgba(58,49,40,.65);padding:2px 1px;}
+.prow select{flex:1;appearance:none;-webkit-appearance:none;background:rgba(255,252,244,.9);
+  border:1px solid rgba(58,49,40,.6);border-radius:2px;color:#2f2a20;font-size:14px;
+  padding:6px 8px;font-family:inherit;letter-spacing:.08em;cursor:pointer;}
+.prow select:focus{outline:none;border-color:#a03b28;}
+#routeSwap{background:rgba(58,49,40,.08);border:1px solid rgba(58,49,40,.45);border-radius:2px;
+  color:#3a3128;font-size:15px;cursor:pointer;padding:5px 9px;font-family:inherit;}
+#routeSwap:hover{background:#3a3128;color:#f0e6cc;}
+#routeModes{display:flex;gap:5px;padding:11px 14px 2px;flex-wrap:wrap;}
+.mbtn{flex:1;background:rgba(255,252,244,.7);border:1px solid rgba(58,49,40,.5);border-radius:2px;
+  color:#3a3128;font-size:12.5px;letter-spacing:.14em;padding:6px 2px;cursor:pointer;font-family:inherit;
+  transition:all .18s;}
+.mbtn:hover{border-color:#a03b28;color:#8c2f22;}
+.mbtn.on{background:#3a3128;color:#f0e6cc;border-color:#3a3128;}
+#routeGo{display:block;margin:11px 14px 4px;width:calc(100% - 28px);
+  background:#a03b28;border:1px solid #8c2f22;border-radius:2px;color:#f4ecd6;
+  font-size:15px;letter-spacing:.5em;padding:8px 0 8px .5em;cursor:pointer;font-family:inherit;}
+#routeGo:hover{background:#8c2f22;}
+#routeResult{padding:6px 16px 4px;min-height:30px;}
+#routeResult .rhint{font-size:12.5px;color:rgba(58,49,40,.55);letter-spacing:.1em;line-height:1.9;padding:6px 0;}
+#routeResult .rdays{display:flex;align-items:baseline;gap:9px;margin:4px 0 2px;}
+#routeResult .rdays b{font-size:30px;color:#8c2f22;letter-spacing:.04em;
+  font-family:"Ma Shan Zheng","Kaiti SC","KaiTi",serif;}
+#routeResult .rdays span{font-size:13px;color:#3a3128;letter-spacing:.2em;}
+#routeResult .rli{font-size:12.5px;color:rgba(58,49,40,.75);letter-spacing:.1em;margin-bottom:5px;}
+#routeResult .rleg{display:flex;gap:7px;font-size:12px;line-height:1.95;color:#2f2a20;letter-spacing:.04em;white-space:nowrap;}
+#routeResult .rleg .lm{color:rgba(58,49,40,.55);min-width:86px;}
+#routeResult .rleg .ld{color:#8c2f22;}
+#routeResult .rcmp{margin-top:7px;padding-top:6px;border-top:1px dashed rgba(58,49,40,.35);
+  font-size:11.5px;color:rgba(58,49,40,.6);letter-spacing:.08em;line-height:1.9;}
+#routeResult .rnote{margin-top:5px;font-size:11.5px;color:#7a5a28;letter-spacing:.06em;}
+.pnote{font-size:10.5px;color:rgba(58,49,40,.48);letter-spacing:.08em;
+  padding:7px 16px 11px;border-top:1px dashed rgba(58,49,40,.3);margin-top:7px;line-height:1.8;}
+/* ---------- 戰場推演 ---------- */
+#battlePanel{right:76px;top:104px;width:352px;}
+#battleWrap{display:flex;}
+#chTabs{display:flex;flex-direction:column;gap:6px;padding:10px 0 10px 8px;
+  border-right:1px dashed rgba(58,49,40,.35);}
+.chtab{writing-mode:vertical-rl;text-orientation:upright;background:rgba(255,252,244,.75);
+  border:1px solid rgba(58,49,40,.5);border-radius:2px;color:#3a3128;font-size:13px;
+  letter-spacing:.22em;padding:11px 4px;cursor:pointer;font-family:inherit;transition:all .18s;}
+.chtab:hover{border-color:#a03b28;color:#8c2f22;}
+.chtab.on{background:#a03b28;border-color:#8c2f22;color:#f4ecd6;}
+#chBody{flex:1;padding:10px 14px 13px;min-height:200px;}
+#chBody .chyear{font-size:12px;color:rgba(58,49,40,.6);letter-spacing:.16em;margin-bottom:5px;}
+#chBody .chintro{font-size:12.5px;line-height:1.95;color:#2f2a20;letter-spacing:.04em;
+  padding-bottom:8px;border-bottom:1px solid rgba(58,49,40,.25);margin-bottom:8px;}
+#chBody .cside{margin-bottom:6px;}
+#chBody .cbar{display:flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.06em;}
+#chBody .cbar .cn{min-width:62px;}
+#chBody .cbar .ct{flex:1;display:block;height:11px;background:rgba(58,49,40,.1);border-radius:1px;overflow:hidden;}
+#chBody .cbar .cf{display:block;height:100%;border-radius:1px;}
+#chBody .cbar .cv{min-width:44px;text-align:right;color:#5a4c38;}
+#chBody .cgen{font-size:11px;color:rgba(58,49,40,.55);letter-spacing:.1em;margin:2px 0 0 70px;}
+#chBody .cvs{text-align:center;font-size:12px;color:#a03b28;letter-spacing:.5em;margin:7px 0 8px;}
+#chBody .phases{display:flex;flex-direction:column;gap:5px;}
+.phrow{display:flex;align-items:flex-start;gap:8px;padding:6px 7px;cursor:pointer;
+  border:1px solid transparent;border-radius:2px;transition:all .15s;}
+.phrow:hover{background:rgba(58,49,40,.06);}
+.phrow.on{background:rgba(160,59,40,.08);border-color:rgba(160,59,40,.5);}
+.phrow .pn{width:21px;height:21px;flex:none;border-radius:50%;border:1.5px solid rgba(58,49,40,.6);
+  color:#3a3128;font-size:11.5px;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.phrow.on .pn{background:#a03b28;border-color:#8c2f22;color:#f4ecd6;}
+.phrow .pt{font-size:13.5px;letter-spacing:.1em;color:#2f2a20;}
+.phrow .pd{display:none;font-size:12px;line-height:1.9;color:rgba(47,42,32,.85);
+  letter-spacing:.03em;margin-top:4px;text-align:justify;}
+.phrow.on .pd{display:block;}
+#chBody .phctrl{display:flex;gap:7px;margin-top:10px;}
+#chBody .phctrl button{flex:1;background:rgba(255,252,244,.7);border:1px solid rgba(58,49,40,.5);
+  border-radius:2px;color:#3a3128;font-size:12.5px;letter-spacing:.2em;padding:6px 0;cursor:pointer;font-family:inherit;}
+#chBody .phctrl button:hover{border-color:#a03b28;color:#8c2f22;}
+#chBody .phctrl button.play{background:#3a3128;color:#f0e6cc;border-color:#3a3128;}
+#chBody .phctrl button.play:hover{background:#a03b28;}
+#chBody .chempty{font-size:12.5px;color:rgba(58,49,40,.55);letter-spacing:.14em;
+  line-height:2.1;padding:26px 8px;text-align:center;}
+
 </style>
 </head>
 <body>
@@ -124,6 +222,35 @@ html,body{margin:0;height:100%;overflow:hidden;background:#e9dfc6;
 </div>
 
 <div id="tooltip"></div>
+
+<button id="routeBtn" class="edgebtn" style="left:22px;top:322px;">行路檢索</button>
+<button id="battleBtn" class="edgebtn" style="right:22px;top:118px;">戰場推演</button>
+
+<aside id="routePanel" class="panel">
+  <div class="ptitle">行 路 檢 索<button class="pclose" id="routeClose">×</button></div>
+  <div class="prow"><span class="plab">始發</span><select id="routeFrom"></select>
+    <button id="routeSwap" title="始發抵達對調">⇅</button></div>
+  <div class="prow"><span class="plab">抵達</span><select id="routeTo"></select></div>
+  <div id="routeModes">
+    <button class="mbtn on" data-mode="walk">徒步</button>
+    <button class="mbtn" data-mode="horse">騎馬</button>
+    <button class="mbtn" data-mode="cart">車馬</button>
+    <button class="mbtn" data-mode="boat">乘船</button>
+    <button class="mbtn" data-mode="relay">驛馬</button>
+  </div>
+  <button id="routeGo">推 算 行 程</button>
+  <div id="routeResult"><div class="rhint">擇始發、抵達二城與行路之法，<br>按漢代行旅腳程推算日程，繪其道於圖上。</div></div>
+  <div class="pnote">里法從漢制，一里約415米；道路紆曲與山川之險皆計入程限。水路順流速而溯流遲。</div>
+</aside>
+
+<aside id="battlePanel" class="panel">
+  <div class="ptitle">戰 場 推 演<button class="pclose" id="battleClose">×</button></div>
+  <div id="battleWrap">
+    <div id="chTabs"></div>
+    <div id="chBody"><div class="chempty">擇左側章節<br>按圖推演四場大戰攻守之勢</div></div>
+  </div>
+</aside>
+
 
 <div id="hint">拖 拿 旋 轉 · 滾 輪 縮 放 · 懸 停 城 池 戰 場 觀 其 詳</div>
 <div id="legend">
@@ -1568,13 +1695,468 @@ rotBtn.addEventListener('click',()=>{controls.autoRotate=!controls.autoRotate;
   rotBtn.classList.toggle('on',controls.autoRotate);rotBtn.blur();});
 setView((new URLSearchParams(location.search)).get('view')||'hero');
 
+// ============ 行路檢索 (漢代行旅腳程) ============
+const KM_PER_LI=0.4158;
+function havKm(a,b){
+  const R=6371,dLa=(b[1]-a[1])*Math.PI/180,dLo=(b[0]-a[0])*Math.PI/180;
+  const s=Math.sin(dLa/2)**2+Math.cos(a[1]*Math.PI/180)*Math.cos(b[1]*Math.PI/180)*Math.sin(dLo/2)**2;
+  return 2*R*Math.asin(Math.sqrt(s));
+}
+function sampleElevM(lon,lat){
+  const c=Math.max(0,Math.min(CW-1,Math.round((lon-LON0)/(LON1-LON0)*(CW-1))));
+  const r=Math.max(0,Math.min(CHn-1,Math.round((LAT1-lat)/(LAT1-LAT0)*(CHn-1))));
+  return CH.z[r*CW+c];
+}
+function landFactor(a,b){ // 山川之險 → 行路加時
+  const n=36;let s=0;
+  for(let i=1;i<n;i++){
+    const t=i/n,e=sampleElevM(a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t);
+    s+=Math.max(0,e-250)/900;
+  }
+  return Math.min(1.9,1+(s/n)*0.85);
+}
+const CITY_BY_NAME={};DATA.cities.forEach((c,i)=>CITY_BY_NAME[c[0]]=i);
+const CPOS=DATA.cities.map(c=>[c[1],c[2]]);
+// 水道 (依流向下游排序; 段名供行程單顯示)
+const WATER_DEFS=[
+ ['成都','江州','岷江'],['江州','白帝城','長江'],['白帝城','夷陵','長江三峽'],
+ ['夷陵','江陵','長江'],['江陵','赤壁','長江'],['赤壁','武昌','長江'],
+ ['武昌','柴桑','長江'],['柴桑','濡須口','長江'],['濡須口','建業','長江'],
+ ['建業','京口','長江'],['京口','吳郡','長江'],
+ ['漢中','襄陽','漢水'],['襄陽','武昌','漢水'],
+ ['長安','洛陽','渭水·黃河'],['洛陽','官渡','黃河'],['官渡','壽春','鴻溝'],
+ ['合肥','濡須口','濡須水'],
+];
+const WATER_EDGES=[]; // {a,b,name,dDown,d,li}
+WATER_DEFS.forEach(d=>{
+  const A=CITY_BY_NAME[d[0]],B=CITY_BY_NAME[d[1]];
+  if(A===undefined||B===undefined)return;
+  const km=havKm(CPOS[A],CPOS[B])*1.35, li=km/KM_PER_LI;
+  WATER_EDGES.push({a:A,b:B,name:d[2],li:li,
+    dDown:km/(110*KM_PER_LI),dUp:km/(40*KM_PER_LI)});
+});
+const MODES={
+ walk:{name:'徒步',li:45},
+ horse:{name:'騎馬',li:90},
+ cart:{name:'車馬',li:55},
+ boat:{name:'乘船',li:55},  // 陸段以車馬計, 水段見水道
+ relay:{name:'驛馬',li:300},
+};
+function landDays(mode,u,v){
+  const km=havKm(CPOS[u],CPOS[v])*1.22*landFactor(CPOS[u],CPOS[v]);
+  return km/(MODES[mode].li*KM_PER_LI);
+}
+function waterEdgeDays(e,fromIdx){
+  const down=(fromIdx===e.a);
+  return {d:down?e.dDown:e.dUp,down:down};
+}
+function computeRoute(mode,si,ti){
+  if(si===ti||si===undefined||ti===undefined)return null;
+  const N=DATA.cities.length,INF=1e18;
+  const dist=new Float64Array(N).fill(INF),pre=new Array(N).fill(null),done=new Uint8Array(N);
+  dist[si]=0;
+  for(let it=0;it<N;it++){
+    let u=-1,best=INF;
+    for(let i=0;i<N;i++)if(!done[i]&&dist[i]<best){best=dist[i];u=i;}
+    if(u<0||u===ti)break;
+    done[u]=1;
+    for(let v=0;v<N;v++){
+      if(v===u||done[v])continue;
+      const w=landDays(mode,u,v);
+      if(dist[u]+w<dist[v]){dist[v]=dist[u]+w;pre[v]={node:u,leg:{type:'land',a:u,b:v,d:w}};}
+    }
+    if(mode==='boat'){
+      WATER_EDGES.forEach((e,k)=>{
+        let v=-1,dd=null;
+        if(e.a===u){dd=waterEdgeDays(e,u);v=e.b;}
+        else if(e.b===u){dd=waterEdgeDays(e,u);v=e.a;}
+        if(v>=0&&!done[v]&&dist[u]+dd.d<dist[v]){dist[v]=dist[u]+dd.d;pre[v]={node:u,leg:{type:'water',k:k,from:u,d:dd.d,down:dd.down}};}
+      });
+    }
+  }
+  if(!pre[ti]&&ti!==si)return null;
+  const legs=[];let cur=ti;
+  while(cur!==si){const p=pre[cur];legs.unshift(p.leg);cur=p.node;}
+  let li=0;
+  legs.forEach(l=>{
+    if(l.type==='land')li+=havKm(CPOS[l.a],CPOS[l.b])*1.22*landFactor(CPOS[l.a],CPOS[l.b])/KM_PER_LI;
+    else li+=WATER_EDGES[l.k].li;
+  });
+  return {days:dist[ti],legs:legs,li:li};
+}
+// ---- 路線繪製 ----
+let routeMeshes=[],routePathPts=null,routeDot=null,routeT=0,routeLen=0;
+function clearRoute(){
+  routeMeshes.forEach(m=>scene.remove(m));routeMeshes=[];
+  if(routeDot){scene.remove(routeDot);routeDot=null;}
+  routePathPts=null;
+}
+function drapeRibbonPts(pts,width,color,opacity){
+  const pos=[],idx=[];let off=0;
+  for(let k=0;k<pts.length-1;k++){
+    const [x1,y1,z1]=pts[k],[x2,y2,z2]=pts[k+1];
+    const dx=x2-x1,dz=z2-z1,M=Math.hypot(dx,dz)||1;
+    const nx=-dz/M*width/2,nz=dx/M*width/2;
+    pos.push(x1-nx,y1,z1-nz, x1+nx,y1,z1+nz, x2-nx,y2,z2-nz, x2+nx,y2,z2+nz);
+    idx.push(off,off+2,off+1, off+1,off+2,off+3); off+=4;
+  }
+  const g=new THREE.BufferGeometry();
+  g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+  g.setIndex(idx);
+  const cc=new THREE.Color(color);cc.convertSRGBToLinear();
+  const m=new THREE.Mesh(g,new THREE.MeshBasicMaterial({color:cc,transparent:opacity<1,opacity,
+      side:THREE.DoubleSide,depthWrite:false,polygonOffset:true,polygonOffsetFactor:-1,polygonOffsetUnits:-1}));
+  scene.add(m);routeMeshes.push(m);
+}
+const RIVER_LINES={};
+DATA.rivers.forEach(r=>{
+  if(!RIVER_LINES[r.name]||RIVER_LINES[r.name].length<r.pts.length)RIVER_LINES[r.name]=r.pts;
+});
+function riverBetween(riverName,a,b){
+  const rp=RIVER_LINES[riverName];if(!rp||rp.length<10)return null;
+  let ia=0,ib=0,da=1e9,db=1e9;
+  for(let i=0;i<rp.length;i++){
+    const dd=(rp[i][0]-CPOS[a][0])**2+(rp[i][1]-CPOS[a][1])**2;
+    if(dd<da){da=dd;ia=i;}
+    const de=(rp[i][0]-CPOS[b][0])**2+(rp[i][1]-CPOS[b][1])**2;
+    if(de<db){db=de;ib=i;}
+  }
+  if(Math.abs(ia-ib)<2||da>4||db>4)return null;
+  const seg=ia<ib?rp.slice(ia,ib+1):rp.slice(ib,ia+1).reverse();
+  return seg.length>=2?seg:null;
+}
+function drawRoute(res){
+  clearRoute();
+  routePathPts=[];
+  // 逐段: 陸=朱紅, 水=青藍(有河線者沿河)
+  res.legs.forEach(l=>{
+    let a,b,water=l.type==='water';
+    let seg=null;
+    if(l.type==='land'){a=l.a;b=l.b;}
+    else{const e=WATER_EDGES[l.k];a=l.from;b=(l.from===e.a)?e.b:e.a;
+      const cands=e.name.split('·').map(n=>n.replace('三峽',''));
+      const rn=cands.find(n=>RIVER_LINES[n]);
+      if(rn)seg=riverBetween(rn,a,b);}
+    const ax=mx(CPOS[a][0]),az=mz(CPOS[a][1]),bx=mx(CPOS[b][0]),bz=mz(CPOS[b][1]);
+    let pts=[];
+    if(seg){
+      for(let s=0;s<seg.length;s++){
+        const x=mx(seg[s][0]),z=mz(seg[s][1]);
+        pts.push([x,groundY(x,z)+1.15,z]);
+      }
+    } else {
+      const L=Math.hypot(bx-ax,bz-az)||1;
+      const sub=Math.max(2,Math.ceil(L/0.8));
+      for(let s=0;s<=sub;s++){
+        const t=s/sub,x=ax+(bx-ax)*t,z=az+(bz-az)*t;
+        pts.push([x,groundY(x,z)+1.15,z]);
+      }
+    }
+    pts.forEach(p=>routePathPts.push(p));
+    drapeRibbonPts(pts,water?0.78:0.6,0xf2ead4,0.9);
+    drapeRibbonPts(pts,water?0.5:0.36,water?0x2e6d8e:0xa83226,water?0.95:0.9);
+  });
+  // 起訖標
+  const s0=routePathPts[0],s1=routePathPts[routePathPts.length-1];
+  [[s0,0x2f2a20],[s1,0xa03b28]].forEach(p=>{
+    const m=new THREE.Mesh(new THREE.ConeGeometry(1.1,2.4,10),
+      new THREE.MeshBasicMaterial({color:new THREE.Color(p[1]).convertSRGBToLinear()}));
+    m.position.set(p[0][0],p[0][1]+4.2,p[0][2]);scene.add(m);routeMeshes.push(m);
+    const pole=new THREE.Mesh(new THREE.CylinderGeometry(0.09,0.09,4.6,6),
+      new THREE.MeshBasicMaterial({color:new THREE.Color(0x3a3128).convertSRGBToLinear()}));
+    pole.position.set(p[0][0],p[0][1]+2,p[0][2]);scene.add(pole);routeMeshes.push(pole);
+  });
+  // 行旅光點
+  routeDot=new THREE.Mesh(new THREE.SphereGeometry(0.85,10,8),
+    new THREE.MeshBasicMaterial({color:new THREE.Color(0xd94f2b).convertSRGBToLinear()}));
+  routeDot.position.set(s0[0],s0[1]+1,s0[2]);scene.add(routeDot);
+  routeLen=0;
+  for(let k=1;k<routePathPts.length;k++)routeLen+=Math.hypot(
+    routePathPts[k][0]-routePathPts[k-1][0],routePathPts[k][2]-routePathPts[k-1][2]);
+  routeT=0;
+}
+function fmtDays(d){
+  if(d<0.5)return'半日';
+  const n=Math.round(d*2)/2;
+  return (n%1?n.toFixed(1):n)+'日';
+}
+const CN_NUM=['零','一','二','三','四','五','六','七','八','九'];
+function cnLi(li){
+  const v=Math.round(li/10)*10;
+  return v.toLocaleString('zh-Hans-CN');
+}
+let routeMode='walk';
+(function(){
+  const selF=document.getElementById('routeFrom'),selT=document.getElementById('routeTo');
+  const KIND={wei:'魏',shu:'蜀',wu:'吳'};
+  const sorted=DATA.cities.map((c,i)=>({n:c[0],k:KIND[c[3]],i:i})).sort((a,b)=>a.k.localeCompare(b.k)||a.n.localeCompare(b.n,'zh-Hans-CN'));
+  sorted.forEach(c=>{
+    selF.add(new Option(c.n+' · '+c.k,c.i));
+    selT.add(new Option(c.n+' · '+c.k,c.i));
+  });
+  selF.value='2'; // 成都(idx依排序後依value=i)
+  selF.value=String(CITY_BY_NAME['成都']);selT.value=String(CITY_BY_NAME['建業']);
+  document.querySelectorAll('.mbtn').forEach(b=>b.addEventListener('click',()=>{
+    routeMode=b.dataset.mode;
+    document.querySelectorAll('.mbtn').forEach(x=>x.classList.toggle('on',x===b));
+  }));
+  document.getElementById('routeSwap').addEventListener('click',()=>{
+    const t=selF.value;selF.value=selT.value;selT.value=t;
+  });
+  document.getElementById('routeGo').addEventListener('click',computeAndShow);
+  document.getElementById('routeClose').addEventListener('click',()=>togglePanel('routePanel',false));
+  selF.addEventListener('change',computeAndShow);
+  selT.addEventListener('change',computeAndShow);
+})();
+function togglePanel(id,force){
+  const el=document.getElementById(id);
+  const on=(force!==undefined)?force:!el.classList.contains('open');
+  el.classList.toggle('open',on);
+  document.getElementById(id==='routePanel'?'routeBtn':'battleBtn').classList.toggle('on',on);
+  if(id==='battlePanel'&&!on)showChapterArrows(null);
+}
+document.getElementById('routeBtn').addEventListener('click',()=>togglePanel('routePanel'));
+document.getElementById('battleBtn').addEventListener('click',()=>togglePanel('battlePanel'));
+function computeAndShow(){
+  const si=parseInt(document.getElementById('routeFrom').value,10);
+  const ti=parseInt(document.getElementById('routeTo').value,10);
+  const out=document.getElementById('routeResult');
+  if(si===ti){out.innerHTML='<div class="rhint">始發抵達同為一城，請另擇一城。</div>';clearRoute();return;}
+  const res=computeRoute(routeMode,si,ti);
+  if(!res){out.innerHTML='<div class="rhint">此路不通。</div>';return;}
+  const hasWater=res.legs.some(l=>l.type==='water');
+  let legsHtml='';
+  res.legs.forEach(l=>{
+    let a,b,mt,dd;
+    if(l.type==='land'){a=DATA.cities[l.a][0];b=DATA.cities[l.b][0];
+      mt=routeMode==='boat'?'車馬':MODES[routeMode].name;dd=fmtDays(l.d);}
+    else{const e=WATER_EDGES[l.k];a=DATA.cities[l.from][0];b=DATA.cities[l.from===e.a?e.b:e.a][0];
+      mt='水行·'+e.name+(l.down?'順流':'溯流');dd=fmtDays(l.d);}
+    legsHtml+='<div class="rleg"><span class="lm">'+mt+'</span><span>'+a+' → '+b+'</span><span class="ld">'+dd+'</span></div>';
+  });
+  let cmp='';
+  if(routeMode!=='boat'){
+    cmp='<div class="rcmp">他法: '+['walk','horse','cart','relay'].filter(m=>m!==routeMode)
+      .map(m=>{const r=computeRoute(m,si,ti);return MODES[m].name+'約'+fmtDays(r?r.days:0);}).join(' · ')+'</div>';
+  } else if(!hasWater){
+    cmp='<div class="rnote">二城不共水道，水程以車馬陸行計。</div>';
+  }
+  out.innerHTML='<div class="rdays"><b>約'+fmtDays(res.days)+'</b><span>'+(routeMode==='boat'&&hasWater?'水陸聯運':MODES[routeMode].name)+'之程</span></div>'
+    +'<div class="rli">行程約 '+cnLi(res.li)+' 里（'+Math.round(res.li*KM_PER_LI).toLocaleString()+' 公里）</div>'
+    +legsHtml+cmp;
+  drawRoute(res);
+  // 鏡頭就位
+  let x0=1e9,x1=-1e9,z0=1e9,z1=-1e9;
+  routePathPts.forEach(p=>{x0=Math.min(x0,p[0]);x1=Math.max(x1,p[0]);z0=Math.min(z0,p[2]);z1=Math.max(z1,p[2]);});
+  const cx=(x0+x1)/2,cz=(z0+z1)/2,span=Math.max(x1-x0,z1-z0)*1.15+50;
+  flyToP([cx-span*0.3,span*0.85,cz+span*1.05],[cx,0,cz],1600);
+}
+
+// ============ 戰場推演 (四大戰章節) ============
+const CH_COLOR={wei:0x34557a,shu:0xa83226,wu:0x3e6b4f,yuan:0x6f5f96};
+const CHAPTERS=[
+ {id:'guandu',name:'官渡之戰',year:'東漢建安五年 · 西元二〇〇年',focus:[113.75,34.95],
+  sides:[{n:'曹操軍',w:2,c:'shu',g:'曹操 · 荀彧 · 關羽 · 張遼'},{n:'袁紹軍',w:11,c:'yuan',g:'袁紹 · 顏良 · 文醜 · 許攸'}],
+  intro:'曹操以兩萬之眾扼守官渡，夜襲烏巢焚糧，大破袁紹十萬南下之師，奠定統一北方之基。',
+  cam:{p:[12,38,38]},
+  phases:[
+   {t:'袁紹南下 · 曹操扼守',d:'二月，袁紹率精兵十萬、戰馬萬匹自鄴城南下，白馬、延津初戰連折顏良文醜；曹操避其鋒芒，退扼官渡，深溝高壘以待之。',
+    ar:[{f:[114.49,36.35],t:[113.68,34.92],c:'yuan'},{f:[113.85,34.04],t:[113.68,34.92],c:'shu'}],cam:{p:[10,30,30]}},
+   {t:'相持半載 · 夜襲烏巢',d:'兩軍相持，曹軍糧盡士疲，曹操欲退，荀彧書阻之。袁紹謀士許攸來降，獻烏巢糧屯虛實；曹操大喜，親率五千步騎，夜著袁軍旗號，間道疾馳，天明焚其糧穀。',
+    ar:[{f:[113.68,34.92],t:[114.28,35.15],c:'shu'}],cam:{p:[5,16,18]}},
+   {t:'乘勝反擊 · 河北傾覆',d:'烏巢火起，張郃、高覽臨陣降曹，袁軍全線崩潰。曹操坑殺降卒七萬，兩年後袁氏勢滅，北方遂歸一統。',
+    ar:[{f:[113.68,34.92],t:[114.49,36.35],c:'ret'}],cam:{p:[12,32,32]}},
+  ]},
+ {id:'chibi',name:'赤壁之戰',year:'東漢建安十三年 · 西元二〇八年',focus:[113.55,29.85],
+  sides:[{n:'孫劉聯軍',w:5,c:'wu',g:'周瑜 · 諸葛亮 · 黃蓋 · 魯肅'},{n:'曹軍',w:20,c:'wei',g:'曹操 · 曹仁 · 蔡瑁 · 張允'}],
+  intro:'曹軍二十餘萬（號稱八十萬）順流東下，孫劉五萬聯軍藉東南風火攻破敵，三分之勢由此奠定。',
+  cam:{p:[15,32,32]},
+  phases:[
+   {t:'操軍南下 · 孫劉結盟',d:'七月曹操南征，八月劉琮舉荊州降；劉備敗走當陽，退屯夏口，遣諸葛亮東行柴桑，共結盟好。周瑜率三萬水軍溯流而上，與劉備並力，屯於赤壁。',
+    ar:[{f:[112.24,30.35],t:[113.62,29.72],c:'wei'},{f:[112.12,32.01],t:[115.9,29.72],c:'shu'}],cam:{p:[20,42,42]}},
+   {t:'黃蓋詐降 · 火藉風威',d:'曹軍疫病，戰船首尾相連。黃蓋獻火攻詐降之計，以蒙衝鬥艦十艘實薪膏油，藉東南風中江舉帆，距北軍二里同時發火，火猛船疾，延燒岸營。',
+    ar:[{f:[113.62,29.72],t:[113.45,29.94],c:'wu'}],cam:{p:[2,15,14]}},
+   {t:'焚船棄營 · 敗走華容',d:'曹操盡焚餘船引軍步走華容道，遇泥濘羸兵為人負藉填之，飢疫死者大半；留曹仁守江陵，自還北方。劉備旋收荊南，鼎足之形漸成。',
+    ar:[{f:[113.45,29.94],t:[112.24,30.35],c:'ret'}],cam:{p:[15,32,32]}},
+  ]},
+ {id:'yiling',name:'夷陵之戰',year:'蜀漢章武二年 · 西元二二二年',focus:[111.4,30.6],
+  sides:[{n:'吳軍',w:5,c:'wu',g:'陸遜 · 朱然 · 潘璋 · 韓當'},{n:'蜀漢軍',w:4,c:'shu',g:'劉備 · 馬良 · 黃權 · 傅肜'}],
+  intro:'劉備忿關羽之死，親率大軍出峽伐吳；陸遜堅壁後撤，伺機火燒連營，蜀漢精銳盡喪於夷陵。',
+  cam:{p:[12,32,32]},
+  phases:[
+   {t:'大軍出峽 · 連營七百',d:'章武二年二月，劉備自白帝城率四萬餘眾出峽，將軍吳班、陳式水軍屯夷陵，夾江東西岸；黃權督江北諸軍防魏，前鋒連營直抵猇亭。',
+    ar:[{f:[109.56,31.04],t:[111.32,30.7],c:'shu'}],cam:{p:[10,32,32]}},
+   {t:'陸遜堅壁 · 拒守要衝',d:'吳將陸遜受拜大都督，統朱然、潘璋五萬拒之。避其鋒銳，退出高山險地，堅壁夷道猇亭一線不戰，相持半年，蜀軍欲進不得，欲退不能。',
+    ar:[{f:[111.32,30.7],t:[111.55,30.42],c:'wu'}],cam:{p:[5,20,20]}},
+   {t:'火燒連營 · 先主崩殂',d:'閏六月，陸遜乘暑熱反攻，令士卒各持茅一把，以火攻拔之；斬張南、馮習，破其四十餘營。劉備夜遁，驛人自擔燒鐃鎧斷後，僅得入白帝城，次年崩於永安宮。',
+    ar:[{f:[111.55,30.42],t:[111.32,30.7],c:'wu'},{f:[111.32,30.7],t:[109.56,31.04],c:'ret'}],cam:{p:[12,32,32]}},
+  ]},
+ {id:'jieting',name:'街亭之戰',year:'蜀漢建興六年 · 西元二二八年',focus:[106.35,35.05],
+  sides:[{n:'蜀漢軍',w:3,c:'shu',g:'諸葛亮 · 馬謖 · 王平'},{n:'曹魏軍',w:5,c:'wei',g:'張郃 · 曹真 · 司馬懿'}],
+  intro:'諸葛亮首出祁山，天水三郡響應，關中震動；馬謖違節度捨水上山，張郃斷其汲道一戰潰之，北伐最利之機遂失。',
+  cam:{p:[10,30,30]},
+  phases:[
+   {t:'揚聲斜谷 · 大軍出祁',d:'建興六年春，諸葛亮揚聲由斜谷取郿，使趙雲、鄧芝為疑軍據箕谷；亮身率大軍西攻祁山，戎陳整齊，賞罰肅而號令明，南安、天水、安定三郡叛魏歸蜀。',
+    ar:[{f:[107.03,33.07],t:[106.05,35.35],c:'shu'}],cam:{p:[10,35,35]}},
+   {t:'張郃西進 · 倍道急趨',d:'魏明帝西鎮長安，命張郃率五萬步騎西拒諸葛亮。郃逾隴山，沿坻道倍道兼行，直趨街亭，以絕蜀軍隴右之糧道。',
+    ar:[{f:[108.94,34.27],t:[106.05,35.35],c:'wei'}],cam:{p:[8,28,28]}},
+   {t:'捨水上山 · 一戰即潰',d:'馬謖違亮節度，舉動失宜，捨水源而登山不下。張郃絕其汲道，縱兵擊之，蜀軍渴而大潰；惟王平所領千人鳴鼓自守。亮進無所據，拔西縣千餘家還漢中，揮淚斬馬謖，三軍垂泣。',
+    ar:[{f:[106.05,35.35],t:[107.03,33.07],c:'ret'}],cam:{p:[10,30,30]}},
+  ]},
+];
+let curChapter=null,curPhase=-1,chapterArrows={},playTimer=null;
+function buildArrowMesh(f,t,colHex,retreat){
+  const ax=mx(f[0]),az=mz(f[1]),bx=mx(t[0]),bz=mz(t[1]);
+  const L=Math.hypot(bx-ax,bz-az)||1;
+  const sub=Math.max(2,Math.ceil(L/0.7));
+  const pts=[];
+  for(let s=0;s<=sub;s++){
+    const t2=s/sub,x=ax+(bx-ax)*t2,z=az+(bz-az)*t2;
+    pts.push([x,groundY(x,z)+1.5,z]);
+  }
+  const pos=[],idx=[];let off=0;
+  const width=retreat?0.4:0.48;
+  for(let k=0;k<pts.length-1;k++){
+    const [x1,y1,z1]=pts[k],[x2,y2,z2]=pts[k+1];
+    const dx=x2-x1,dz=z2-z1,M=Math.hypot(dx,dz)||1;
+    const nx=-dz/M*width/2,nz=dx/M*width/2;
+    pos.push(x1-nx,y1,z1-nz, x1+nx,y1,z1+nz, x2-nx,y2,z2-nz, x2+nx,y2,z2+nz);
+    idx.push(off,off+2,off+1, off+1,off+2,off+3); off+=4;
+  }
+  const g=new THREE.BufferGeometry();
+  g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+  g.setIndex(idx);
+  const cc=new THREE.Color(colHex);cc.convertSRGBToLinear();
+  const ribbon=new THREE.Mesh(g,new THREE.MeshBasicMaterial({color:cc,transparent:true,
+      opacity:retreat?0.62:0.9,side:THREE.DoubleSide,depthWrite:false,
+      polygonOffset:true,polygonOffsetFactor:-1,polygonOffsetUnits:-1}));
+  scene.add(ribbon);
+  // 箭鏃
+  const dir=new V3(pts[pts.length-1][0]-pts[pts.length-2][0],pts[pts.length-1][1]-pts[pts.length-2][1],
+    pts[pts.length-1][2]-pts[pts.length-2][2]).normalize();
+  const cone=new THREE.Mesh(new THREE.ConeGeometry(retreat?0.55:0.85,retreat?1.6:2.4,10),
+    new THREE.MeshBasicMaterial({color:cc,transparent:true,opacity:retreat?0.62:0.95}));
+  cone.position.set(pts[pts.length-1][0],pts[pts.length-1][1],pts[pts.length-1][2]);
+  cone.quaternion.setFromUnitVectors(new V3(0,1,0),dir);
+  cone.translateY(retreat?0.8:1.2);
+  scene.add(cone);
+  return [ribbon,cone];
+}
+function chapterKey(id,ph){return id+'#'+ph;}
+function ensureChapterArrows(ch){
+  ch.phases.forEach((ph,pi)=>{
+    const key=chapterKey(ch.id,pi);
+    if(!chapterArrows[key]){
+      chapterArrows[key]=ph.ar.flatMap(a=>buildArrowMesh(a.f,a.t,a.c==='ret'?0x8a8177:CH_COLOR[a.c],a.c==='ret'));
+    }
+  });
+}
+function showChapterArrows(id){
+  Object.keys(chapterArrows).forEach(k=>{
+    const chId=k.split('#')[0];
+    const on=curChapter&&chId===curChapter.id;
+    chapterArrows[k].forEach(m=>m.visible=on&&parseInt(k.split('#')[1],10)===curPhase);
+  });
+}
+function flyToP(p,t,dur){
+  fly={t0:performance.now(),dur:dur||1400,p0:camera.position.clone(),q0:controls.target.clone(),
+       p1:new V3(...p),q1:new V3(...t)};
+}
+function chapterCam(ch,phase){
+  const fx=mx(ch.focus[0]),fz=mz(ch.focus[1]);
+  const off=(phase&&phase.cam)?phase.cam:ch.cam;
+  return {p:[fx+off.p[0],off.p[1],fz+off.p[2]],t:[fx,1,fz]};
+}
+function setPhase(pi,noFly){
+  if(!curChapter)return;
+  curPhase=Math.max(0,Math.min(curChapter.phases.length-1,pi));
+  showChapterArrows(curChapter.id);
+  document.querySelectorAll('.phrow').forEach((r,i)=>r.classList.toggle('on',i===curPhase));
+  if(!noFly){const c=chapterCam(curChapter,curChapter.phases[curPhase]);flyToP(c.p,c.t,1200);}
+}
+function setChapter(id,noFly){
+  const ch=CHAPTERS.find(c=>c.id===id);
+  curChapter=ch||null;
+  document.getElementById('chTabs').querySelectorAll('.chtab').forEach(b=>b.classList.toggle('on',b.dataset.id===id));
+  const body=document.getElementById('chBody');
+  if(!ch){body.innerHTML='<div class="chempty">擇左側章節<br>按圖推演四場大戰攻守之勢</div>';return;}
+  const maxw=Math.max(...ch.sides.map(s=>s.w));
+  const bars=ch.sides.map(s=>{
+    const col='#'+CH_COLOR[s.c].toString(16).padStart(6,'0');
+    return '<div class="cside"><div class="cbar"><span class="cn">'+s.n+'</span>'
+      +'<span class="ct"><span class="cf" style="width:'+Math.round(s.w/maxw*100)+'%;background:'+col+'"></span></span>'
+      +'<span class="cv">'+s.w+'萬</span></div><div class="cgen">'+s.g+'</div></div>';
+  }).join('<div class="cvs">對 陣</div>');
+  const phs=ch.phases.map((p,i)=>'<div class="phrow" data-i="'+i+'"><span class="pn">'+(i+1)+'</span>'
+    +'<div><div class="pt">'+p.t+'</div><div class="pd">'+p.d+'</div></div></div>').join('');
+  body.innerHTML='<div class="chyear">'+ch.year+'</div>'
+    +'<div class="chintro">'+ch.intro+'</div>'+bars
+    +'<div class="phases">'+phs+'</div>'
+    +'<div class="phctrl"><button id="phPrev">上一步</button><button id="phPlay" class="play">推 演 ▶</button><button id="phNext">下一步</button></div>';
+  body.querySelectorAll('.phrow').forEach(r=>r.addEventListener('click',()=>{stopPlay();setPhase(parseInt(r.dataset.i,10));}));
+  body.querySelector('#phPrev').addEventListener('click',()=>{stopPlay();setPhase(curPhase-1);});
+  body.querySelector('#phNext').addEventListener('click',()=>{stopPlay();setPhase(curPhase+1);});
+  body.querySelector('#phPlay').addEventListener('click',()=>{
+    if(playTimer){stopPlay();return;}
+    if(curPhase>=curChapter.phases.length-1)setPhase(0,true);
+    playTimer=setInterval(()=>{
+      if(curPhase>=curChapter.phases.length-1){stopPlay();return;}
+      setPhase(curPhase+1);
+    },4200);
+    const b=body.querySelector('#phPlay');b.textContent='停 ▢';
+    setPhase(curPhase===curChapter.phases.length-1?0:curPhase,true);
+  });
+  ensureChapterArrows(ch);
+  setPhase(0,noFly);
+  if(!noFly){const c=chapterCam(ch,null);flyToP(c.p,c.t,1500);}
+}
+function stopPlay(){
+  if(playTimer){clearInterval(playTimer);playTimer=null;}
+  const b=document.querySelector('#phPlay');if(b)b.textContent='推 演 ▶';
+}
+(function(){
+  const tabs=document.getElementById('chTabs');
+  CHAPTERS.forEach(ch=>{
+    const b=document.createElement('button');
+    b.className='chtab';b.dataset.id=ch.id;b.textContent=ch.name.replace('之戰','');
+    b.addEventListener('click',()=>setChapter(ch.id));
+    tabs.appendChild(b);
+  });
+  document.getElementById('battleClose').addEventListener('click',()=>{
+    stopPlay();togglePanel('battlePanel',false);
+  });
+})();
+// URL 參數直接定幕 (渲染/分享用)
+(function(){
+  const qs=new URLSearchParams(location.search);
+  const rt=qs.get('route');
+  if(rt){
+    const p=rt.split(',');
+    if(p.length>=2&&CITY_BY_NAME[p[0]]!==undefined&&CITY_BY_NAME[p[1]]!==undefined){
+      document.getElementById('routeFrom').value=String(CITY_BY_NAME[p[0]]);
+      document.getElementById('routeTo').value=String(CITY_BY_NAME[p[1]]);
+      if(p[2]&&MODES[p[2]]){routeMode=p[2];
+        document.querySelectorAll('.mbtn').forEach(x=>x.classList.toggle('on',x.dataset.mode===p[2]));}
+      togglePanel('routePanel',true);
+      setTimeout(computeAndShow,400);
+    }
+  }
+  const cp=qs.get('chapter');
+  if(cp&&CHAPTERS.some(c=>c.id===cp)){
+    togglePanel('battlePanel',true);
+    setTimeout(()=>setChapter(cp),400);
+    const ph=qs.get('phase');
+    if(ph)setTimeout(()=>setPhase(parseInt(ph,10)),1900);
+  }
+})();
+
 // ---------- loop ----------
 function resize(){
   camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();
   renderer.setSize(innerWidth,innerHeight);
   const z=innerHeight/1080;
   labelLayer.style.fontSize=(z*11).toFixed(2)+'px';
-  ['titlecard','ctrl','hint','legend','tooltip','credit'].forEach(id=>{
+  ['titlecard','ctrl','hint','legend','tooltip','credit','routePanel','battlePanel','routeBtn','battleBtn'].forEach(id=>{
     const el=document.getElementById(id);if(el)el.style.zoom=z;});
 }
 addEventListener('resize',resize);resize();
@@ -1583,6 +2165,22 @@ function loop(){
   requestAnimationFrame(loop);
   const tNow=clock.getElapsedTime();
   seaTex.offset.x=tNow*0.0022; seaTex.offset.y=tNow*0.0013;
+  if(routeDot&&routePathPts&&routeLen>0){
+    routeT=(routeT+0.0035)%1;
+    let target=routeT*routeLen,acc=0;
+    for(let k=1;k<routePathPts.length;k++){
+      const seg=Math.hypot(routePathPts[k][0]-routePathPts[k-1][0],routePathPts[k][2]-routePathPts[k-1][2]);
+      if(acc+seg>=target||k===routePathPts.length-1){
+        const f=Math.min(1,Math.max(0,(target-acc)/Math.max(1e-6,seg)));
+        routeDot.position.set(
+          routePathPts[k-1][0]+(routePathPts[k][0]-routePathPts[k-1][0])*f,
+          routePathPts[k-1][1]+(routePathPts[k][1]-routePathPts[k-1][1])*f+0.9,
+          routePathPts[k-1][2]+(routePathPts[k][2]-routePathPts[k-1][2])*f);
+        break;
+      }
+      acc+=seg;
+    }
+  }
   cityMarks.forEach(m=>{
     if(m.type==='flag')m.mesh.rotation.y=Math.sin(tNow*1.3+m.phase)*0.28;
     else m.mesh.rotation.z=Math.sin(tNow*1.6+m.phase)*0.16;
